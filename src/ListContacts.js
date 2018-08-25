@@ -17,6 +17,11 @@ class ListContacts extends Component {
     this.setState({ query: query.trim() })
   }
 
+  clearQuery = () => {
+    this.setState({ query: '' });
+    // you can also write: this.updateQuery('');
+  }
+
   render() {
     // use object destructuring to make our code cleaner
     const { contacts, onDeleteContact } = this.props;
@@ -51,6 +56,14 @@ class ListContacts extends Component {
             onChange={(event) => this.updateQuery(event.target.value)}
           />
         </div>
+
+        {showingContacts.length !== contacts.length && /* conditional AND render if true */ (
+          <div className="showing-contacts">
+            <span>Now showing {showingContacts.length} of {contacts.length}</span>
+            <button onClick={this.clearQuery}>Show All</button>
+          </div>
+        )}
+
         <ol className="contact-list">
           {showingContacts.map((contact) => (
             <li key={contact.id} className="contact-list-item">
