@@ -12,10 +12,10 @@ class App extends Component {
   componentDidMount() {
     ContactsAPI.getAll().then((contacts) => {
       this.setState({ contacts })
-    // same as:
-    // ContactsAPI.getAll().then((data) => {
-    //   this.setState({ contacts: data })
-    // })
+      // same as:
+      // ContactsAPI.getAll().then((data) => {
+      //   this.setState({ contacts: data })
+      // })
     })
   }
 
