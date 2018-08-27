@@ -21,6 +21,9 @@ class App extends Component {
     this.setState((state) => ({
       contacts: state.contacts.filter((c) => c.id !== contact.id)
     }))
+
+    // remove from database as well
+    ContactsAPI.remove(contact)
   }
 
   render() {
